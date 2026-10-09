@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gizli Mesaj — bir fotoğrafın içine mesaj sakla</title>
+<meta name="description" content="Mesajını bir fotoğrafın içine gizle, parolayla kilitle. Her şey tarayıcında olur; hiçbir şey kaydedilmez. Açık kaynak." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23234a6d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23cfe0ec' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23cfe0ec'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+
+<nav>
+  <div class="kol ic">
+    <span class="marka"><span class="mark-nokta"></span> Gizli Mesaj</span>
+    <a class="gh" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="kol hero-ic">
+    <div>
+      <h1>Bir fotoğrafın içine mesaj sakla</h1>
+      <p>Yazdığın mesaj, fotoğrafın renklerinin içine gizlenir. Fotoğraf olduğu gibi görünür; mesajı yalnızca parolayı bilen açar. Her şey bu sayfada, senin tarayıcında olur.</p>
+      <div class="eylem">
+        <a class="dugme" href="#arac">Mesajı gizle</a>
+        <a class="baglanti" href="#nasil">Nasıl çalışıyor?</a>
+      </div>
+    </div>
+    <div>
+      <div class="kare">
+        <svg class="gelis" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Siyanotip bir manzara">
+          <defs>
+            <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0d2e49"/><stop offset="1" stop-color="#1c547d"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" fill="url(#gok)"/>
+          <circle cx="72" cy="28" r="12" fill="#bcd6e8" opacity="0.9"/>
+          <path d="M0 70 L22 50 L40 66 L60 44 L78 62 L100 46 L100 100 L0 100 Z" fill="#0a2238"/>
+          <path d="M0 80 L30 64 L52 78 L74 60 L100 74 L100 100 L0 100 Z" fill="#06182a"/>
+          <g fill="#9fc2d8" opacity="0.8">
+            <path d="M14 30 l2 -3 2 3 -2 1 z"/><path d="M26 24 l1.6 -2.4 1.6 2.4 -1.6 .8 z"/>
+          </g>
+          <g fill="#7fa8c4" opacity="0.35">
+            <rect x="8" y="8" width="1" height="1"/><rect x="20" y="40" width="1" height="1"/>
+            <rect x="48" y="18" width="1" height="1"/><rect x="60" y="30" width="1" height="1"/>
+            <rect x="86" y="54" width="1" height="1"/><rect x="34" y="12" width="1" height="1"/>
+            <rect x="90" y="20" width="1" height="1"/><rect x="12" y="58" width="1" height="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="kare-alt">Bu karede saklı bir mesaj olabilir — bakınca anlaşılmaz.</div>
+    </div>
+  </div>
+</header>
+
+<section id="arac">
+  <div class="kol">
+    <div class="sekmeler">
+      <button class="etkin sans" id="sekmeGizle">Gizle</button>
+      <button class="sans" id="sekmeCoz">Çöz</button>
+    </div>
+
+    <div class="panel" id="panelGizle">
+      <div class="birak" id="gizleBirak" tabindex="0">
+        <svg class="ikon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
+        <div>Fotoğraf seç ya da buraya bırak</div>
+        <div class="ipucu">PNG veya JPG</div>
+      </div>
+      <div class="kapasite" id="kapasite"></div>
+      <input type="file" id="gizleDosya" accept="image/*" style="display:none" />
+      <div class="alan">
+        <label for="mesaj">Gizlenecek mesaj</label>
+        <textarea id="mesaj" placeholder="Buraya yaz…"></textarea>
+      </div>
+      <div class="alan">
+        <label for="gizleParola">Parola</label>
+        <input type="password" id="gizleParola" placeholder="Açarken bu parola gerekir" />
+      </div>
+      <button class="ana" id="gizleBtn" disabled>Gizle ve indir</button>
+      <div class="sonuc" id="gizleSonuc"><span class="mt"></span></div>
+    </div>
+
+    <div class="panel" id="panelCoz" style="display:none">
+      <div class="birak" id="cozBirak" tabindex="0">
+        <svg class="ikon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+        <div>Gizli mesaj taşıyan fotoğrafı seç</div>
+        <div class="ipucu">genelde gizli.png</div>
+      </div>
+      <input type="file" id="cozDosya" accept="image/*" style="display:none" />
+      <div class="alan">
+        <label for="cozParola">Parola</label>
+        <input type="password" id="cozParola" placeholder="Gizlerken kullanılan parola" />
+      </div>
+      <button class="ana" id="cozBtn" disabled>Mesajı çöz</button>
+      <div class="sonuc" id="cozSonuc"><span class="mt"></span></div>
+      <div class="mesajkutu" id="cozMesajKutu">
+        <label>Gizli mesaj <button class="kopya" id="kopyaBtn">kopyala</button></label>
+        <div class="govde" id="cozMesaj"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nasil">
+  <div class="kol">
+    <h2>Nasıl çalışıyor?</h2>
+    <div class="dar">
+      <p>Bir fotoğraf milyonlarca noktadan oluşur; her noktanın rengi sayılarla tutulur. Bir sayının en küçük basamağını değiştirmek, rengi gözün seçemeyeceği kadar az oynatır.</p>
+      <p>Mesajın harfleri işte bu en küçük basamaklara, tek tek yazılır. Önce parolanla kilitlenir, sonra gömülür. Çıkarırken de aynı parola gerekir.</p>
+    </div>
+
+    <figure class="diyagram">
+      <svg viewBox="0 0 520 150" role="img" aria-label="En küçük bitin değişimi">
+        <g font-family="Archivo, sans-serif">
+          <rect x="20" y="40" width="54" height="54" fill="#17547f"/>
+          <text x="47" y="116" fill="#566b7e" font-size="12" text-anchor="middle">mavi: 182</text>
+          <text x="92" y="72" fill="#566b7e" font-size="20">→</text>
+          <g transform="translate(130,52)" font-size="20" fill="#15293f" font-weight="700" letter-spacing="3">
+            <text x="0" y="16">1 0 1 1 0 1 1</text>
+            <rect x="196" y="-4" width="22" height="26" fill="none" stroke="#235a84" stroke-width="2"/>
+            <text x="200" y="16" fill="#235a84">0</text>
+          </g>
+          <text x="130" y="104" fill="#566b7e" font-size="12">son basamak: mesajın bir biti buraya yazılır</text>
+          <text x="368" y="72" fill="#566b7e" font-size="20">→</text>
+          <rect x="400" y="40" width="54" height="54" fill="#17557f"/>
+          <text x="427" y="116" fill="#566b7e" font-size="12" text-anchor="middle">mavi: 183</text>
+        </g>
+      </svg>
+      <figcaption>Mavinin değeri 182'den 183'e gider. Göz bu farkı görmez; ama o son basamak artık mesajı taşır.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="anlamak">
+  <div class="kol">
+    <h2>Bir fotoğrafta gizli mesaj var mı, nasıl anlarım?</h2>
+    <div class="dar">
+      <p>Kısa cevap: gözle anlayamazsın. İyi gizlenmiş bir mesaj, fotoğrafın renklerini binde bir bile değiştirmez; iki fotoğrafı yan yana koysan farkı göremezsin. Amaç da budur.</p>
+
+      <h3>Yine de şüphelendirebilecek işaretler</h3>
+      <ul>
+        <li>Fotoğraf PNG ve dosya boyutu benzerlerine göre tuhaf şekilde büyük.</li>
+        <li>Biri fotoğrafı ısrarla "dosya olarak, sıkıştırmadan" gönderiyor.</li>
+        <li>Fotoğrafın adı ya da yeri konuyla uyumsuz — sade bir manzaranın adı "gizli.png" gibi.</li>
+      </ul>
+
+      <h3>Emin olmanın yolu</h3>
+      <p>Fotoğrafı yukarıdaki "Çöz" bölümüne bırak ve parolayı dene. Mesaj varsa ve parola doğruysa açılır; yoksa "gizli mesaj yok" der. Parolayı bilmiyorsan içeriği okuyamazsın, çünkü mesaj şifrelidir.</p>
+
+      <h3>Uzmanlar ne yapar?</h3>
+      <p>Steganaliz denen yöntemle piksellerdeki istatistiksel izlere bakılır. Normal bir fotoğrafta en küçük basamaklar rastgele dağılır; bir mesaj gizlenmişse bu dağılım bozulur. Bu, "bir şey gizli mi" sorusuna yaklaştırır ama parola olmadan mesajı okutmaz.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gizlilik" class="gizlilik">
+  <div class="kol">
+    <h2>Fotoğrafın da, mesajın da sende kalır</h2>
+    <p>Bu sayfa hiçbir sunucuya bağlanmaz. Seçtiğin fotoğraf, yazdığın mesaj ve parolan bilgisayarından çıkmaz — istersen internet bağlantını kapat, yine çalışır. Hiçbir şey kaydedilmez, hiçbir iz tutulmaz.</p>
+    <p>Mesaj, parolandan üretilen bir anahtarla AES-256 ile şifrelenir. Kod açıktır; dilersen satır satır okuyabilirsin.</p>
+    <a class="oku" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">Kodu GitHub'da oku</a>
+  </div>
+</section>
+
+<section id="sss">
+  <div class="kol">
+    <h2>Sık sorulanlar</h2>
+    <details><summary>Fotoğrafı WhatsApp'tan atınca neden açılmıyor?</summary>
+      <p>WhatsApp, Instagram gibi uygulamalar fotoğrafı sıkıştırır ve bu işlem gizli basamakları siler. Fotoğrafı "dosya/belge" olarak gönder; "fotoğraf" olarak değil.</p></details>
+    <details><summary>Mesajım ne kadar güvenli?</summary>
+      <p>Mesaj, parolandan üretilen bir anahtarla AES-256 ile şifrelenir. Parolayı bilmeyen, fotoğrafta bir mesaj olduğunu sezse bile içeriği okuyamaz.</p></details>
+    <details><summary>Fotoğrafım ya da mesajım bir yere gidiyor mu?</summary>
+      <p>Hayır. Her şey senin tarayıcında olur; hiçbir fotoğraf, mesaj ya da parola gönderilmez veya kaydedilmez.</p></details>
+    <details><summary>Ne kadar uzun mesaj gizleyebilirim?</summary>
+      <p>Fotoğraf ne kadar büyükse o kadar çok. Fotoğrafı seçince araç, kaç karakter sığacağını söyler.</p></details>
+    <details><summary>Çıktı neden hep PNG?</summary>
+      <p>PNG kayıpsız bir biçimdir; gizli basamaklar bozulmaz. JPEG mesajı silerdi, bu yüzden çıktı her zaman PNG olur.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="kol ic">
+    <span>Gizli Mesaj — tarayıcında çalışan, açık kaynak bir araç.</span>
+    <a href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="js/steganografi.js"></script>
+<script src="js/arayuz.js"></script>
+</body>
+</html>
