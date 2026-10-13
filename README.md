@@ -31,3 +31,8 @@ Mantık `js/steganografi.js` içinde duruyor ve sayfadan bağımsız: dışarıy
 `mesajiCikar` fonksiyonlarını veriyor. `js/arayuz.js` yalnızca bunları
 butonlara bağlıyor.
 
+## Not
+
+Fotoğrafı gönderirken "dosya/belge" olarak gönder, "fotoğraf" olarak değil.
+WhatsApp, Instagram gibi uygulamalar fotoğrafı sıkıştırır ve bu işlem gizli
+mesajı siler.
