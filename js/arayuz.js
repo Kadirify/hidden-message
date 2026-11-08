@@ -2,12 +2,18 @@
  * arayuz.js
  * Sayfadaki butonları, dosya alanlarını ve sekmeleri steganografi çekirdeğine
  * bağlar. Gizleme/çözme işini kendisi yapmaz; onu steganografi.js yürütür.
+ * Çalışırken ürettiği tüm metinleri aktif dile göre window.Dil'den alır.
  */
 (function () {
   "use strict";
 
   var cekirdek = window.Steganografi;
   var secili = (id) => document.getElementById(id);
+
+  // Aktif dile uygun sayı biçimi (binlik ayracı için).
+  function sayiBicimi() {
+    return window.Dil.aktif() === "tr" ? "tr-TR" : "en-US";
+  }
 
   // --- Küçük yardımcılar -----------------------------------------------------
 
@@ -102,17 +108,20 @@
 
   var gizlenecekResim = null;
 
+  // Kapasite yazısını aktif dile göre (yeniden) yazar.
+  function kapasiteYaz() {
+    if (!gizlenecekResim) return;
+    var kapasite = cekirdek.karakterKapasitesi(gizlenecekResim.veri);
+    secili("kapasite").textContent = window.Dil.metin("dyn.kapasite", {
+      n: kapasite.toLocaleString(sayiBicimi())
+    });
+  }
+
   birakmaAlaniBagla("gizleBirak", "gizleDosya", async function (dosya) {
     try {
       gizlenecekResim = await dosyadanResimVerisi(dosya);
       onizlemeGoster(secili("gizleBirak"), gizlenecekResim.adres);
-
-      var kapasite = cekirdek.karakterKapasitesi(gizlenecekResim.veri);
-      secili("kapasite").textContent =
-        "Bu fotoğrafa yaklaşık " +
-        kapasite.toLocaleString("tr-TR") +
-        " karakter sığar.";
-
+      kapasiteYaz();
       secili("gizleBtn").disabled = false;
     } catch (e) {
       gizlenecekResim = null;
@@ -125,7 +134,7 @@
     var parola = secili("gizleParola").value;
 
     if (!gizlenecekResim || !mesaj || !parola) {
-      durumGoster("gizleSonuc", "kotu", "Fotoğraf, mesaj ve parola gerekli.");
+      durumGoster("gizleSonuc", "kotu", window.Dil.metin("dyn.gereken"));
       return;
     }
 
@@ -161,7 +170,7 @@
       } catch (e) {}
 
       if (geriOkunan !== mesaj) {
-        durumGoster("gizleSonuc", "kotu", "Doğrulama başarısız, lütfen tekrar dene.");
+        durumGoster("gizleSonuc", "kotu", window.Dil.metin("dyn.dogrulamaHata"));
         secili("gizleBtn").disabled = false;
         return;
       }
@@ -171,17 +180,10 @@
       baglanti.download = "gizli.png";
       baglanti.click();
 
-      durumGoster(
-        "gizleSonuc",
-        "iyi",
-        "gizli.png indirildi ve mesajın okunabildiği doğrulandı. Karşı taraf aynı parolayla çözebilir."
-      );
+      durumGoster("gizleSonuc", "iyi", window.Dil.metin("dyn.basari"));
     } catch (hata) {
-      var metin =
-        hata.message === "kapasite"
-          ? "Mesaj bu fotoğraf için çok uzun. Daha büyük bir fotoğraf seç ya da mesajı kısalt."
-          : "Bir şeyler ters gitti.";
-      durumGoster("gizleSonuc", "kotu", metin);
+      var anahtar = hata.message === "kapasite" ? "dyn.cokUzun" : "dyn.tersGitti";
+      durumGoster("gizleSonuc", "kotu", window.Dil.metin(anahtar));
     }
 
     secili("gizleBtn").disabled = false;
@@ -209,7 +211,7 @@
     var parola = secili("cozParola").value;
 
     if (!cozulecekResim || !parola) {
-      durumGoster("cozSonuc", "kotu", "Fotoğraf ve parola gerekli.");
+      durumGoster("cozSonuc", "kotu", window.Dil.metin("dyn.cozGereken"));
       return;
     }
 
@@ -220,20 +222,17 @@
       secili("cozMesajKutu").style.display = "block";
     } catch (hata) {
       secili("cozMesajKutu").style.display = "none";
-      var metin =
-        hata.message === "yok"
-          ? "Bu fotoğrafta gizli mesaj yok (ya da fotoğraf sıkıştırılırken bozulmuş)."
-          : "Parola yanlış.";
-      durumGoster("cozSonuc", "kotu", metin);
+      var anahtar = hata.message === "yok" ? "dyn.mesajYok" : "dyn.parolaYanlis";
+      durumGoster("cozSonuc", "kotu", window.Dil.metin(anahtar));
     }
   });
 
   secili("kopyaBtn").addEventListener("click", async function () {
     try {
       await navigator.clipboard.writeText(secili("cozMesaj").textContent);
-      secili("kopyaBtn").textContent = "kopyalandı";
+      secili("kopyaBtn").textContent = window.Dil.metin("dyn.kopyalandi");
       setTimeout(function () {
-        secili("kopyaBtn").textContent = "kopyala";
+        secili("kopyaBtn").textContent = window.Dil.metin("coz.kopya");
       }, 1500);
     } catch (e) {}
   });
@@ -253,4 +252,7 @@
   secili("sekmeCoz").addEventListener("click", function () {
     sekmeDegistir(false);
   });
+
+  // Dil değişince, yüklü bir fotoğraf varsa kapasite yazısını yenile.
+  document.addEventListener("dil-degisti", kapasiteYaz);
 })();

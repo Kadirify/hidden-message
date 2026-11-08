@@ -27,6 +27,13 @@ nav .ic { display: flex; align-items: center; justify-content: space-between; he
 .gh { font-family: "Archivo", sans-serif; font-size: 14px; color: var(--soluk); text-decoration: none; display: inline-flex; align-items: center; gap: 7px; }
 .gh:hover { color: var(--murekkep); }
 .gh svg { width: 17px; height: 17px; fill: currentColor; }
+.nav-sag { display: flex; align-items: center; gap: 18px; }
+.diller { display: inline-flex; border: 1px solid var(--cizgi); border-radius: 3px; overflow: hidden; }
+.diller button { font-family: "Archivo", sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: 0.02em;
+  cursor: pointer; background: transparent; color: var(--soluk); border: none; padding: 5px 10px; }
+.diller button + button { border-left: 1px solid var(--cizgi); }
+.diller button.etkin { background: var(--murekkep); color: #fff; }
+.diller button:hover:not(.etkin) { color: var(--murekkep); }
 
 /* HERO */
 .hero { padding: 64px 0 56px; }

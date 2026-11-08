@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gizli Mesaj — bir fotoğrafın içine mesaj sakla</title>
-<meta name="description" content="Mesajını bir fotoğrafın içine gizle, parolayla kilitle. Her şey tarayıcında olur; hiçbir şey kaydedilmez. Açık kaynak." />
+<title>Hidden Message — hide a message inside a photo</title>
+<meta name="description" content="Hide your message inside a photo and lock it with a password. Everything happens in your browser; nothing is stored. Open source." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23234a6d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23cfe0ec' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23cfe0ec'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,27 +15,33 @@
 
 <nav>
   <div class="kol ic">
-    <span class="marka"><span class="mark-nokta"></span> Gizli Mesaj</span>
-    <a class="gh" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
+    <span class="marka"><span class="mark-nokta"></span> <span data-i18n="nav.marka">Hidden Message</span></span>
+    <div class="nav-sag">
+      <div class="diller" role="group" aria-label="Language">
+        <button type="button" data-dil="en">EN</button>
+        <button type="button" data-dil="tr">TR</button>
+      </div>
+      <a class="gh" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="kol hero-ic">
     <div>
-      <h1>Bir fotoğrafın içine mesaj sakla</h1>
-      <p>Yazdığın mesaj, fotoğrafın renklerinin içine gizlenir. Fotoğraf olduğu gibi görünür; mesajı yalnızca parolayı bilen açar. Her şey bu sayfada, senin tarayıcında olur.</p>
+      <h1 data-i18n="hero.baslik">Hide a message inside a photo</h1>
+      <p data-i18n="hero.alt">The message you type is hidden inside the colors of a photo. The photo looks exactly the same; only someone who knows the password can open it. Everything happens on this page, in your browser.</p>
       <div class="eylem">
-        <a class="dugme" href="#arac">Mesajı gizle</a>
-        <a class="baglanti" href="#nasil">Nasıl çalışıyor?</a>
+        <a class="dugme" href="#arac" data-i18n="hero.gizleBtn">Hide a message</a>
+        <a class="baglanti" href="#nasil" data-i18n="hero.nasilLink">How does it work?</a>
       </div>
     </div>
     <div>
       <div class="kare">
-        <svg class="gelis" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Siyanotip bir manzara">
+        <svg class="gelis" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" data-i18n-aria="hero.gorselAria" aria-label="A cyanotype landscape">
           <defs>
             <linearGradient id="gok" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#0d2e49"/><stop offset="1" stop-color="#1c547d"/>
@@ -56,7 +62,7 @@
           </g>
         </svg>
       </div>
-      <div class="kare-alt">Bu karede saklı bir mesaj olabilir — bakınca anlaşılmaz.</div>
+      <div class="kare-alt" data-i18n="hero.altyazi">This frame may hold a hidden message — you can't tell by looking.</div>
     </div>
   </div>
 </header>
@@ -64,45 +70,45 @@
 <section id="arac">
   <div class="kol">
     <div class="sekmeler">
-      <button class="etkin sans" id="sekmeGizle">Gizle</button>
-      <button class="sans" id="sekmeCoz">Çöz</button>
+      <button class="etkin sans" id="sekmeGizle" data-i18n="sekme.gizle">Hide</button>
+      <button class="sans" id="sekmeCoz" data-i18n="sekme.coz">Reveal</button>
     </div>
 
     <div class="panel" id="panelGizle">
       <div class="birak" id="gizleBirak" tabindex="0">
-        <svg class="ikon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
-        <div>Fotoğraf seç ya da buraya bırak</div>
-        <div class="ipucu">PNG veya JPG</div>
+        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
+        <div data-i18n="gizle.birak">Choose a photo or drop it here</div>
+        <div class="ipucu" data-i18n="gizle.birakIpucu">PNG or JPG</div>
       </div>
       <div class="kapasite" id="kapasite"></div>
       <input type="file" id="gizleDosya" accept="image/*" style="display:none" />
       <div class="alan">
-        <label for="mesaj">Gizlenecek mesaj</label>
-        <textarea id="mesaj" placeholder="Buraya yaz…"></textarea>
+        <label for="mesaj" data-i18n="gizle.mesajLabel">Message to hide</label>
+        <textarea id="mesaj" data-i18n-ph="gizle.mesajPh" placeholder="Type here…"></textarea>
       </div>
       <div class="alan">
-        <label for="gizleParola">Parola</label>
-        <input type="password" id="gizleParola" placeholder="Açarken bu parola gerekir" />
+        <label for="gizleParola" data-i18n="gizle.parolaLabel">Password</label>
+        <input type="password" id="gizleParola" data-i18n-ph="gizle.parolaPh" placeholder="This password will be needed to open it" />
       </div>
-      <button class="ana" id="gizleBtn" disabled>Gizle ve indir</button>
+      <button class="ana" id="gizleBtn" data-i18n="gizle.btn" disabled>Hide and download</button>
       <div class="sonuc" id="gizleSonuc"><span class="mt"></span></div>
     </div>
 
     <div class="panel" id="panelCoz" style="display:none">
       <div class="birak" id="cozBirak" tabindex="0">
-        <svg class="ikon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
-        <div>Gizli mesaj taşıyan fotoğrafı seç</div>
-        <div class="ipucu">genelde gizli.png</div>
+        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+        <div data-i18n="coz.birak">Choose the photo that carries a hidden message</div>
+        <div class="ipucu" data-i18n="coz.birakIpucu">usually gizli.png</div>
       </div>
       <input type="file" id="cozDosya" accept="image/*" style="display:none" />
       <div class="alan">
-        <label for="cozParola">Parola</label>
-        <input type="password" id="cozParola" placeholder="Gizlerken kullanılan parola" />
+        <label for="cozParola" data-i18n="coz.parolaLabel">Password</label>
+        <input type="password" id="cozParola" data-i18n-ph="coz.parolaPh" placeholder="The password used when hiding" />
       </div>
-      <button class="ana" id="cozBtn" disabled>Mesajı çöz</button>
+      <button class="ana" id="cozBtn" data-i18n="coz.btn" disabled>Reveal the message</button>
       <div class="sonuc" id="cozSonuc"><span class="mt"></span></div>
       <div class="mesajkutu" id="cozMesajKutu">
-        <label>Gizli mesaj <button class="kopya" id="kopyaBtn">kopyala</button></label>
+        <label><span data-i18n="coz.mesajLabel">Hidden message</span> <button class="kopya" id="kopyaBtn" data-i18n="coz.kopya">copy</button></label>
         <div class="govde" id="cozMesaj"></div>
       </div>
     </div>
@@ -111,89 +117,90 @@
 
 <section id="nasil">
   <div class="kol">
-    <h2>Nasıl çalışıyor?</h2>
+    <h2 data-i18n="nasil.baslik">How does it work?</h2>
     <div class="dar">
-      <p>Bir fotoğraf milyonlarca noktadan oluşur; her noktanın rengi sayılarla tutulur. Bir sayının en küçük basamağını değiştirmek, rengi gözün seçemeyeceği kadar az oynatır.</p>
-      <p>Mesajın harfleri işte bu en küçük basamaklara, tek tek yazılır. Önce parolanla kilitlenir, sonra gömülür. Çıkarırken de aynı parola gerekir.</p>
+      <p data-i18n="nasil.p1">A photo is made of millions of dots; each dot's color is stored as numbers. Changing the smallest digit of a number shifts the color too little for the eye to notice.</p>
+      <p data-i18n="nasil.p2">The letters of your message are written into these smallest digits, one by one. First it is locked with your password, then embedded. The same password is needed to take it back out.</p>
     </div>
 
     <figure class="diyagram">
-      <svg viewBox="0 0 520 150" role="img" aria-label="En küçük bitin değişimi">
+      <svg viewBox="0 0 520 150" role="img" data-i18n-aria="nasil.svgAria" aria-label="The change of the smallest bit">
         <g font-family="Archivo, sans-serif">
           <rect x="20" y="40" width="54" height="54" fill="#17547f"/>
-          <text x="47" y="116" fill="#566b7e" font-size="12" text-anchor="middle">mavi: 182</text>
+          <text x="47" y="116" fill="#566b7e" font-size="12" text-anchor="middle" data-i18n="nasil.renk1">blue: 182</text>
           <text x="92" y="72" fill="#566b7e" font-size="20">→</text>
           <g transform="translate(130,52)" font-size="20" fill="#15293f" font-weight="700" letter-spacing="3">
             <text x="0" y="16">1 0 1 1 0 1 1</text>
             <rect x="196" y="-4" width="22" height="26" fill="none" stroke="#235a84" stroke-width="2"/>
             <text x="200" y="16" fill="#235a84">0</text>
           </g>
-          <text x="130" y="104" fill="#566b7e" font-size="12">son basamak: mesajın bir biti buraya yazılır</text>
+          <text x="130" y="104" fill="#566b7e" font-size="12" data-i18n="nasil.sonBasamak">last digit: one bit of the message is written here</text>
           <text x="368" y="72" fill="#566b7e" font-size="20">→</text>
           <rect x="400" y="40" width="54" height="54" fill="#17557f"/>
-          <text x="427" y="116" fill="#566b7e" font-size="12" text-anchor="middle">mavi: 183</text>
+          <text x="427" y="116" fill="#566b7e" font-size="12" text-anchor="middle" data-i18n="nasil.renk2">blue: 183</text>
         </g>
       </svg>
-      <figcaption>Mavinin değeri 182'den 183'e gider. Göz bu farkı görmez; ama o son basamak artık mesajı taşır.</figcaption>
+      <figcaption data-i18n="nasil.figcaption">The blue value goes from 182 to 183. The eye can't see the difference, but that last digit now carries the message.</figcaption>
     </figure>
   </div>
 </section>
 
 <section id="anlamak">
   <div class="kol">
-    <h2>Bir fotoğrafta gizli mesaj var mı, nasıl anlarım?</h2>
+    <h2 data-i18n="anlamak.baslik">Is there a hidden message in a photo, and how can I tell?</h2>
     <div class="dar">
-      <p>Kısa cevap: gözle anlayamazsın. İyi gizlenmiş bir mesaj, fotoğrafın renklerini binde bir bile değiştirmez; iki fotoğrafı yan yana koysan farkı göremezsin. Amaç da budur.</p>
+      <p data-i18n="anlamak.p1">Short answer: you can't tell by looking. A well-hidden message doesn't change the photo's colors by even a thousandth; put two photos side by side and you won't spot the difference. That's the whole point.</p>
 
-      <h3>Yine de şüphelendirebilecek işaretler</h3>
+      <h3 data-i18n="anlamak.h1">Signs that might still raise suspicion</h3>
       <ul>
-        <li>Fotoğraf PNG ve dosya boyutu benzerlerine göre tuhaf şekilde büyük.</li>
-        <li>Biri fotoğrafı ısrarla "dosya olarak, sıkıştırmadan" gönderiyor.</li>
-        <li>Fotoğrafın adı ya da yeri konuyla uyumsuz — sade bir manzaranın adı "gizli.png" gibi.</li>
+        <li data-i18n="anlamak.li1">The photo is a PNG and its file size is oddly large for its kind.</li>
+        <li data-i18n="anlamak.li2">Someone keeps insisting on sending the photo “as a file, without compression.”</li>
+        <li data-i18n="anlamak.li3">The photo's name or place doesn't fit the subject — a plain landscape named something like “gizli.png.”</li>
       </ul>
 
-      <h3>Emin olmanın yolu</h3>
-      <p>Fotoğrafı yukarıdaki "Çöz" bölümüne bırak ve parolayı dene. Mesaj varsa ve parola doğruysa açılır; yoksa "gizli mesaj yok" der. Parolayı bilmiyorsan içeriği okuyamazsın, çünkü mesaj şifrelidir.</p>
+      <h3 data-i18n="anlamak.h2">How to be sure</h3>
+      <p data-i18n="anlamak.p2">Drop the photo into the “Reveal” section above and try the password. If there is a message and the password is right, it opens; otherwise it says there is no hidden message. Without the password you can't read the content, because the message is encrypted.</p>
 
-      <h3>Uzmanlar ne yapar?</h3>
-      <p>Steganaliz denen yöntemle piksellerdeki istatistiksel izlere bakılır. Normal bir fotoğrafta en küçük basamaklar rastgele dağılır; bir mesaj gizlenmişse bu dağılım bozulur. Bu, "bir şey gizli mi" sorusuna yaklaştırır ama parola olmadan mesajı okutmaz.</p>
+      <h3 data-i18n="anlamak.h3">What do experts do?</h3>
+      <p data-i18n="anlamak.p3">A method called steganalysis looks at statistical traces in the pixels. In a normal photo the smallest digits are spread randomly; when a message is hidden, that spread is disturbed. This brings you closer to “is something hidden here,” but without the password it still won't reveal the message.</p>
     </div>
   </div>
 </section>
 
 <section id="gizlilik" class="gizlilik">
   <div class="kol">
-    <h2>Fotoğrafın da, mesajın da sende kalır</h2>
-    <p>Bu sayfa hiçbir sunucuya bağlanmaz. Seçtiğin fotoğraf, yazdığın mesaj ve parolan bilgisayarından çıkmaz — istersen internet bağlantını kapat, yine çalışır. Hiçbir şey kaydedilmez, hiçbir iz tutulmaz.</p>
-    <p>Mesaj, parolandan üretilen bir anahtarla AES-256 ile şifrelenir. Kod açıktır; dilersen satır satır okuyabilirsin.</p>
-    <a class="oku" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">Kodu GitHub'da oku</a>
+    <h2 data-i18n="gizlilik.baslik">The photo and the message both stay with you</h2>
+    <p data-i18n="gizlilik.p1">This page connects to no server. The photo you pick, the message you write and your password never leave your computer — switch off your internet if you like, it still works. Nothing is stored, no trace is kept.</p>
+    <p data-i18n="gizlilik.p2">The message is encrypted with AES-256 using a key derived from your password. The code is open; you can read it line by line if you wish.</p>
+    <a class="oku" href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener" data-i18n="gizlilik.oku">Read the code on GitHub</a>
   </div>
 </section>
 
 <section id="sss">
   <div class="kol">
-    <h2>Sık sorulanlar</h2>
-    <details><summary>Fotoğrafı WhatsApp'tan atınca neden açılmıyor?</summary>
-      <p>WhatsApp, Instagram gibi uygulamalar fotoğrafı sıkıştırır ve bu işlem gizli basamakları siler. Fotoğrafı "dosya/belge" olarak gönder; "fotoğraf" olarak değil.</p></details>
-    <details><summary>Mesajım ne kadar güvenli?</summary>
-      <p>Mesaj, parolandan üretilen bir anahtarla AES-256 ile şifrelenir. Parolayı bilmeyen, fotoğrafta bir mesaj olduğunu sezse bile içeriği okuyamaz.</p></details>
-    <details><summary>Fotoğrafım ya da mesajım bir yere gidiyor mu?</summary>
-      <p>Hayır. Her şey senin tarayıcında olur; hiçbir fotoğraf, mesaj ya da parola gönderilmez veya kaydedilmez.</p></details>
-    <details><summary>Ne kadar uzun mesaj gizleyebilirim?</summary>
-      <p>Fotoğraf ne kadar büyükse o kadar çok. Fotoğrafı seçince araç, kaç karakter sığacağını söyler.</p></details>
-    <details><summary>Çıktı neden hep PNG?</summary>
-      <p>PNG kayıpsız bir biçimdir; gizli basamaklar bozulmaz. JPEG mesajı silerdi, bu yüzden çıktı her zaman PNG olur.</p></details>
+    <h2 data-i18n="sss.baslik">Frequently asked</h2>
+    <details><summary data-i18n="sss.s1">Why won't it open after I send the photo over WhatsApp?</summary>
+      <p data-i18n="sss.c1">Apps like WhatsApp and Instagram compress the photo, and that step wipes out the hidden digits. Send the photo as a “file/document,” not as a “photo.”</p></details>
+    <details><summary data-i18n="sss.s2">How secure is my message?</summary>
+      <p data-i18n="sss.c2">The message is encrypted with AES-256 using a key derived from your password. Someone without the password can't read the content, even if they sense a message is there.</p></details>
+    <details><summary data-i18n="sss.s3">Does my photo or message go anywhere?</summary>
+      <p data-i18n="sss.c3">No. Everything happens in your browser; no photo, message or password is ever sent or stored.</p></details>
+    <details><summary data-i18n="sss.s4">How long a message can I hide?</summary>
+      <p data-i18n="sss.c4">The bigger the photo, the more. When you pick a photo, the tool tells you how many characters will fit.</p></details>
+    <details><summary data-i18n="sss.s5">Why is the output always a PNG?</summary>
+      <p data-i18n="sss.c5">PNG is a lossless format, so the hidden digits aren't damaged. JPEG would erase the message, so the output is always a PNG.</p></details>
   </div>
 </section>
 
 <footer>
   <div class="kol ic">
-    <span>Gizli Mesaj — tarayıcında çalışan, açık kaynak bir araç.</span>
+    <span data-i18n="footer.metin">Hidden Message — an open-source tool that runs in your browser.</span>
     <a href="https://github.com/Kadirify/foto-gizle" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
 
 <script src="js/steganografi.js"></script>
+<script src="js/diller.js"></script>
 <script src="js/arayuz.js"></script>
 </body>
 </html>

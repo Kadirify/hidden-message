@@ -4,6 +4,10 @@ Bir fotoğrafın içine mesaj saklayan küçük bir araç. Mesajı parolayla
 şifreleyip fotoğrafın piksellerine gömüyor; aynı parolayı bilen de geri
 çıkarıyor. Her şey tarayıcıda oluyor — sunucu yok, kayıt yok.
 
+Arayüz İngilizce açılır, Türkçe de sağ üstten seçilebilir. Seçim
+`?lang=tr` olarak adrese yazılır, böylece paylaşılan bağlantı da doğru dili
+açar.
+
 Canlı deneymek için `index.html`'i tarayıcıda açman yeterli.
 
 ## Nasıl çalışıyor
@@ -24,6 +28,7 @@ olduğunu sezse bile, parola olmadan içeriği okuyamıyor.
     index.html          sayfa
     css/stil.css        görünüm
     js/steganografi.js  çekirdek: şifreleme + gizleme/çözme
+    js/diller.js        İngilizce/Türkçe metinler ve dil seçimi
     js/arayuz.js        sayfa ile bağlantı (butonlar, dosya, sekmeler)
 
 Mantık `js/steganografi.js` içinde duruyor ve sayfadan bağımsız: dışarıya
