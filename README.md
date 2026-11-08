@@ -8,7 +8,10 @@ Arayüz İngilizce açılır, Türkçe de sağ üstten seçilebilir. Seçim
 `?lang=tr` olarak adrese yazılır, böylece paylaşılan bağlantı da doğru dili
 açar.
 
-Canlı deneymek için `index.html`'i tarayıcıda açman yeterli.
+Canlı sürüm: **https://hidden-message.kadirify.com**
+
+Kendi bilgisayarında denemek için `index.html`'i bir tarayıcıda açman
+yeterli — sunucu kurmaya gerek yok, internet olmadan da çalışır.
 
 ## Nasıl çalışıyor
 
